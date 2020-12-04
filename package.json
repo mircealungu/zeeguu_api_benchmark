@@ -1,0 +1,19 @@
+{
+  "name": "zeeguu-api-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "hello": "./bin/index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "cross-fetch": "^3.0.6",
+    "node-fetch": "^2.6.1"
+  }
+}
