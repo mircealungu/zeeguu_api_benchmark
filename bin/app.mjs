@@ -8,7 +8,7 @@ const USER_NAME = 'testivus3'
 
 // The only argument of the ZeeguuAPI constructor is the API url
 // without / at the end
-const api = new ZeeguuAPI('http://159.89.13.31:8080')
+const api = new ZeeguuAPI('http://zeeguu.dev:8080')
 
 // We either sign-in or create an account
 // in both cases, we follow this with the doLoggedInStuff()
