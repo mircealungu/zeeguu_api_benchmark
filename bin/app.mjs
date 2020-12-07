@@ -8,7 +8,7 @@ const USER_NAME = "Mir";
 
 // The only argument of the ZeeguuAPI constructor is the API url
 // without / at the end
-const api = new ZeeguuAPI("http://34.90.241.139:8080");
+const api = new ZeeguuAPI("http://127.0.0.1:8080");
 // const api = new ZeeguuAPI("http://168.119.137.59:8080");
 
 // We either sign-in or create an account
