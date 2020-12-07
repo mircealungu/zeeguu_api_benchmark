@@ -53,6 +53,18 @@ const ZeeguuAPI = class {
     this.get("get_user_details", this.session, callback);
   }
 
+  getUserArticles(callback) {
+    this.get("user_articles/recommended", this.session, callback);
+  }
+
+  getUserBookmarksToStudy(callback) {
+    fetch(this.appendSessionToUrl("bookmarks_to_study/20", this.session))
+      .then((response) => callback(response))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   addUser(email, password, invite_code, user_name, onSuccess) {
     let url = this.baseAPIurl + `/add_user/${email}`;
     return fetch(url, {
@@ -61,7 +73,7 @@ const ZeeguuAPI = class {
       body: `password=${password}&invite_code=${invite_code}&username=${user_name}`,
     }).then((response) => {
       response.text().then((session) => {
-        console.log("GOT SESSION AFTER CREATING USER: " + session);
+        // console.log("GOT SESSION AFTER CREATING USER: " + session);
         this.session = session;
         onSuccess(session);
       });
@@ -69,16 +81,16 @@ const ZeeguuAPI = class {
   }
 
   getPossibleTranslations(from_lang, to_lang, word, context, pageUrl) {
-    console.log(this.session);
+    // console.log(this.session);
     let url = this.appendSessionToUrl(
       `get_possible_translations/${from_lang}/${to_lang}`
     );
-    console.log(url);
-    console.log(
-      this.appendSessionToUrl(
-        `get_possible_translations/${from_lang}/${to_lang}`
-      )
-    );
+    // console.log(url);
+    // console.log(
+    //   this.appendSessionToUrl(
+    //     `get_possible_translations/${from_lang}/${to_lang}`
+    //   )
+    // );
     return fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
